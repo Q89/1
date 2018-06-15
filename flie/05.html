@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>05-萌小白</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <style type="text/css">
+    *{
+    	margin:0;
+    	padding: 0;
+    }
+    #warp{
+        position: relative;
+        width: 300px;
+        height: 620px;
+        margin: 20px auto;
+        background-image: url(../images/iphone.png);
+    }
+    #warp .main{
+        position: absolute;
+        top: 76px;
+        left: 19px;
+        overflow: hidden;
+        width: 259px;
+        height: 461px;
+        border: 2px solid #666;
+    }
+    #warp .main #footer img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        vertical-align: middle;
+    }
+    #warp .main #footer input{
+        width: 182px;
+        height: 22px;
+
+    }
+    #warp .main #footer #btn{
+        position: absolute;
+        top: 2px;
+        display: inline-block;
+        height: 26px;
+    }
+    #warp  #footer{
+        position: absolute;
+        bottom: 5px;
+        display: none;
+        width: 100%;
+        height: 30px;
+    }
+    #click{
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        width: 25px;
+        height: 25px;
+        border: 1px solid #666;
+        border-radius: 50px;
+        text-align: center;
+        line-height: 25px;
+    }
+    #content {
+        overflow: auto;
+        width: 100%;
+        height: 90%;
+    }
+    #content ul img{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        vertical-align: top;
+    }
+    #content ul li{
+        display: inline-block;
+        width: 190px;
+        padding: 5px;
+        margin: 10px 0 0 10px;
+        border-radius: 10px;
+        background-color: #ccc;
+        font-size: 14px;
+    }
+    </style>
+</head>
+<body>
+    <div style="width:210px;height: 20px; margin: 20px auto;"><span style="color: red;">感谢：</span>易水儿de 创意图片😀</div>
+    <div id="warp">
+        <div class="main">
+            <div id="content">
+                <ul id="list"></ul>
+            </div>
+            <div id="footer">
+                <img src="../images/1.jpg">
+                <input type="text" id="txt">
+                <button value id="btn">发送</button>
+            </div>
+            <div id="click">+</div>
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript">
+	let obtn = document.getElementById("btn"),
+        otxt = document.getElementById("txt"),
+        oF = document.getElementById("footer"),
+        oC = document.getElementById("click"),
+        oimg = document.getElementsByTagName("img")[0],
+        olist = document.getElementById("list"),
+        mark = true,
+        arr = [
+                `../images/1.jpg`,
+                `../images/tx.jpg`
+            ];
+        oimg.src = arr[0];
+
+
+	
+    oC.onclick = function(){
+
+        oF.style.cssText = "display:block";
+        this.style.cssText = "display: none;";
+    }
+
+    oimg.onclick = function(){
+        if (mark) {
+            oimg.src = arr[1];
+
+        }else{
+            oimg.src = arr[0];
+        }
+            mark = !mark;
+    }
+
+    obtn.onclick = function(){
+        olist.innerHTML += '<img src =' + oimg.src + ' width="20" />' + '<li>' +  otxt.value + '</li>';
+        otxt.value = "";
+    }
+
+</script>
+</html>
