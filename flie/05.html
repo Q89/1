@@ -145,8 +145,15 @@
     }
 
     obtn.onclick = function(){
-        olist.innerHTML += '<img src =' + oimg.src + ' width="20" />' + '<li>' +  otxt.value + '</li>';
-        otxt.value = "";
+
+
+        if (otxt.value.length == 0) {
+            alert("内容不能为空");
+        }else if(otxt.value.length > 0){
+
+            olist.innerHTML += '<img src =' + oimg.src + ' width="20" />' + '<li>' +  otxt.value + '</li>';
+            otxt.value = "";
+        }
     }
 
 </script>
