@@ -3,20 +3,183 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Examples</title>
+    <title>问-06-萌小白</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <link href="" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/logo.ico">
     <style type="text/css">
-    	#box{
-    		width: 100px;
-    		height: 100px;
-    		background-color: #000;
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    	#content{
+    		position: relative;
+    		width: 658px;
+    		height: 411px;
+    		margin: 50px auto;
     	}
+    	p{
+    		position: absolute;
+    		width: 100%;
+    		height: 30px;
+    		background-color: #000;
+    		opacity: 0.5;
+    		font-size: 16px;
+    		color: #fff;
+    		text-align: center;
+    		line-height: 30px;
+    	}
+        p.m-top{
+            top: 0;
+        }
+        p.f-top{
+            bottom:0;
+        }
+    	ul{
+    		width: 100%;
+    		height: 100%;
+			font-size: 0;
+    	}
+    	ul li{
+    		position: absolute;
+    		/*display: none;*/
+    	}
+		.click{
+			display: block;
+		}
+		#content a{
+			position: absolute;
+			top: 50%;
+			margin-top: -70px;
+			display: block;
+			width: 50px;
+			height: 140px;
+			color: #fff;
+			font-size: 65px;
+			background-color: #000;
+			opacity: 0.5;
+			text-decoration: none;
+			text-align: center;
+			line-height: 140px;
+		}
+		a.right{
+			right: 0;
+		}
+        .main{
+            display: none;
+        }
+        .footer{
+            overflow: hidden;
+            width: 246px;
+            height: 50px;
+            margin: 50px auto;
+        }
+        .footer button{
+            width: 100px;
+            height: 100%;
+            margin-right: 20px;
+            border: 0;
+            outline: none;
+        }
+        .active{
+            background-color: red;
+
+        }
     </style>
 </head>
 <body>
-    
-    <button title="666">dasfsda</button>
+    	<div id="content">
+    		<ul>
+    			<li><img src="../images/06/1.jpg"></li>
+    			<li><img src="../images/06/2.jpg"></li>
+    			<li><img src="../images/06/3.jpg"></li>
+    			<li><img src="../images/06/4.jpg"></li>
+    			<li><img src="../images/06/5.jpg"></li>
+    		</ul>
+                <p class="m-top">1/5</p>
+        		<p class="f-top">one</p>
+            <div id="main">
+        		<a href="javascript:void(0);" class="left">&lt;</a>
+        		<a href="javascript:void(0);" class="right">&gt;</a>
+            </div>
+            <div class="footer">
+                <button class="active">单次循环</button>
+                <button>无限循环</button>
+            </div>
+        </div>
 </body>
+	<script type="text/javascript">
+		let oa = document.getElementsByTagName("a"),
+            ospan = document.getElementsByTagName("span"),
+			oli = document.getElementsByTagName("li")[0],
+            oC = document.getElementById("content"),
+            om = document.getElementById("main"),
+            aImg = document.getElementsByTagName('img'),
+            obtn = document.getElementsByTagName("button"),
+            aP = document.getElementsByTagName("p"),
+            num = 0,
+            oldImg = aImg[num],
+            arrText = ["one" , "two" , "three" , "four" , "five" ],
+            onoff = true;
+
+
+        oC.onmouseenter = function(){
+            om.style.cssText = "display: block;"
+        }
+        oC.onmouseleave = function(){
+            om.style.cssText = "display: none;"
+        }
+
+
+
+		oa[0].onclick = function(){
+
+			num--;
+
+            if (num < 0) {
+                if(onoff){
+                    num=0;
+                }else{
+                    num=4;
+                }
+            }
+
+            oldImg.style.display = 'none';
+            aImg[num].style.display = 'block';
+            oldImg = aImg[num];
+            aP[0].innerHTML = num+1+'/'+5;
+            aP[1].innerHTML = arrText[num];
+
+		}
+
+         oa[1].onclick = function(){
+            num++;
+            if(num>4){
+                if(onoff){
+                    num=4;
+                }else{
+                    num=0;
+                }
+
+            }
+            oldImg.style.display = 'none';
+            aImg[num].style.display = 'block';
+            oldImg = aImg[num];
+            aP[0].innerHTML = num+1+'/'+5;
+            aP[1].innerHTML = arrText[num];
+
+        }
+
+    obtn[1].onclick = function(){
+
+        onoff = false;
+        obtn[1].className = "active";
+        obtn[0].className = "";
+    }
+    obtn[0].onclick = function(){
+        onoff = true;
+        obtn[0].className = "active";
+        obtn[1].className = "";
+    }
+	</script>
 </html>
