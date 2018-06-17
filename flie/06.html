@@ -91,11 +91,11 @@
 	<span style="color:red;display:block;width:406px;background-color: #000;margin: 50px auto;">问：第一次循环2345张图片不显示，第二次循环才显示。</span>
     	<div id="content">
     		<ul>
-    			<li><img src="../images/06/1.jpg"></li>
+    			<li class="click"><img src="../images/06/1.jpg"></li>
     			<li><img src="../images/06/2.jpg"></li>
     			<li><img src="../images/06/3.jpg"></li>
     			<li><img src="../images/06/4.jpg"></li>
-    			<li><img src="../images/06/5.jpg"></li>
+                <li><img src="../images/06/5.jpg"></li>
     		</ul>
                 <p class="m-top">1/5</p>
         		<p class="f-top">one</p>
@@ -148,7 +148,7 @@
             oldImg.style.display = 'none';
             aImg[num].style.display = 'block';
             oldImg = aImg[num];
-            aP[0].innerHTML = num+1+'/'+5;
+            aP[0].innerHTML = num+1+'/'+aImg.length;
             aP[1].innerHTML = arrText[num];
 
 		}

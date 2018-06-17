@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>07-1-萌小白</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" href="../images/logo.ico" >
+    <style type="text/css">
+    	*{
+    		margin: 0;
+    		padding: 0;
+    		list-style: none;
+    	}
+    	#content{
+    		width: 300px;
+    		height: 100%;
+    		margin: 50px auto;
+    	}
+
+    	ul li{
+			width: 100%;
+			height: 35px;
+			background-color: red;
+			border: 1px solid green;
+			text-align: center;
+			overflow: hidden;
+    	}
+    	ul li h5,p{
+    		display: block;
+    		width: 100%;
+    		line-height: 35px;
+    		font-size: 20px;
+    		cursor: pointer;
+    		text-transform: capitalize;
+    	}
+    	ul li p{
+    		border: 1px dotted #666;
+    		background-color: #987;
+    		border-radius: 8px;
+    	}
+    </style>
+</head>
+<body>
+    <div id="content">
+    	<ul>
+    		<li>
+    			<h5>萌小白<span></span>号</h5>
+    			<p>help me</p>
+    			<p>love me</p>
+    			<p>love you</p>
+    			<p>cat猫</p>
+    		</li>
+    		<li>
+    			<h5>萌小白<span></span>号</h5>
+    			<p>ant蚂蚁</p>
+    			<p>mouse老鼠</p>
+    			<p>monkey猴</p>
+    			<p>panda熊猫</p>
+    		</li>
+    		<li>
+    			<h5>萌小白<span></span>号</h5>
+    			<p>bear熊</p>
+    			<p>cattle 牛</p>
+    			<p>mule 马骡</p>
+    		</li>
+    		<li>
+    			<h5>萌小白<span></span>号</h5>
+    			<p>herd 牛</p>
+    			<p>water buffalo 水牛</p>
+    			<p>ram 雄绵羊</p>
+    			<p>ewe 雌绵羊</p>
+    		</li>
+    		<li>
+    			<h5>萌小白<span></span>号</h5>
+    			<p>yak 牦牛</p>
+    			<p>calf( pl. calves) 年幼的牛</p>
+    			<p>water buffalo 水牛</p>
+    			<p>lamb 年幼的绵羊</p>
+    		</li>
+
+    </div>
+
+</body>
+
+<script type="text/javascript">
+	let oli = document.getElementsByTagName("li"),
+		oP = document.getElementsByTagName("p"),
+		ospan = document.getElementsByTagName("span")
+
+
+	for (let i = 0; i < oli.length; i++) {
+		oli[i].onclick = function(){
+
+			for (let j = 0; j < oli.length; j++) {
+				oli[j].style.height = "35px";
+			}
+			this.style.height = "auto";
+		}
+		// 鼠标移入移出变色
+		for (var k = 0; k < oP.length; k++) {
+			oP[k].onmouseenter = function(){
+				this.style.backgroundColor = "yellow"
+			}
+			oP[k].onmouseleave = function(){
+				this.style.backgroundColor = ""
+			}
+		}
+		// 标题号
+		for (let n = 0; n < ospan.length; n++) {
+			ospan[n].innerHTML = `${n+1}` ;
+		}
+	}
+</script>
+</html>
